@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+<!-- Блок переопределения контента -->
+{% block content %}
+	<!-- Вывод названия текущего "списка" + кнопок для перехода на предыдущую страницу и удаление текущего "списка" -->
+	<div class='title_detail_schedule'>
+		<a href='{% url "all_schedule_url" %}' title='Выбрать другой список'>Назад</a> 
+		<h1>{{ schedule.title }}</h1>
+		<a href='{{ schedule.get_delete_url }}' id='del' title='Удалить список'>X</a>
+	</div>
+	<br>
+	<!-- Выводяться все "задания" текущего "списка" в виде ссылок, которые при нажатии на них удаляют элемент -->
+	{% if tasks %}
+		{% for task in tasks %}
+			<a href='{{ task.get_delete_url }}' title='Кликните, чтобы удалить задачу' class="{% if task.priority == 'high' %} high {%endif%} {% if task.priority == 'average' %} average {% endif %} {% if task.priority == 'low' %} low {% endif %}">{{ task.title }}</a><br>
+		{% endfor %}
+	{% endif %}
+	<br>
+	<!-- Форма для добавления нового "задания" для текущего "списка" -->
+	<form action = '{{ schedule.get_absolute_url }}' method = 'post' class = 'create_task_form'>
+		{% csrf_token %}
+		{% for field in task_form %}
+			<!-- Выводиться только поле title для формы создания "задания" -->
+			{% if field.label == 'Title'%}
+				{{ field }}
+			{% endif %}
+		{% endfor %}
+		<!-- Форма для создания значения приоритета "задания" -->
+		<div class='priority_block'>
+			<div class='priority_elem'>
+				<input type='radio' name='priority' id = 'priority-high' value='high'>
+				<label for='priority-high'>Высокий</label>
+			</div>
+			<div class='priority_elem'>
+				<input type='radio' name='priority' id = 'priority-average' value='average' checked>
+				<label for='priority-average'>Средний</label>
+			</div>
+			<div class='priority_elem'>
+				<input type='radio' name='priority' id = 'priority-low' value='low'>
+				<label for='priority-low'>Низкий</label>
+			</div>
+		</div>
+		<button type='submit'>Добавить задачу</button>
+	</form>
+{% endblock %}

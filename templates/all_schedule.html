@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+<!-- Блок переопределение контента -->
+{% block content%}
+	<!-- Вывод формы для добавления нового элемента "списка" -->
+	<form action='{% url "all_schedule_url" %}', method='post' class = 'create_schedule_form'>
+		{% csrf_token %}
+		{% for field in schedule_form %}
+		<!-- Выводиться только поле для "Названия" -->
+			{% if field.label == 'Title' %}
+				{{ field }}
+			{% endif %}
+		{% endfor %}
+		<button type='submit'>Добавить</button>
+	</form>
+	<!-- Вывод всех текущих "списков" + кнопок для удалений выбранных элементов -->
+	<div class='schedule_element'>
+	{% for schedule in all_schedule %}
+		<a href='{{ schedule.get_absolute_url }}' id='schedule_element_state'>{{ schedule.title }}</a>
+		<a href='{{ schedule.get_delete_url }}' id='schedule_element_del' title='Удалить список'>X</a>
+	{% endfor %}
+	</div>
+{% endblock %}

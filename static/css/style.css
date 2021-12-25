@@ -1,0 +1,175 @@
+.content {
+	width: 50%;
+	margin: auto;
+	padding-top: 40px;
+}
+h1 {
+	text-align: center;
+}
+a {
+	display: block;
+	margin: auto;
+	padding:  20px;
+	background: #2973e6;
+	font-family:  'Arial', serif;
+	font-size: 1em;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+	border-radius: 8px;
+}
+a:hover {
+	background: #5293f7;
+}
+.high {
+	background: #e62939;
+}
+.high:hover {
+	background: #f75262;
+}
+.average {
+	background:  #2973e6;
+}
+.average:hover {
+	background:  #5293f7;
+}
+.low {
+	background:  #29e671;
+}
+.low:hover {
+	background: #52f791;
+}
+.create_schedule_form {
+	margin: auto;
+	display: grid;
+	grid-template-columns: 80% 20%;
+	padding-bottom: 20px;
+}
+.create_schedule_form input[type=text]{
+	margin: 10px;
+	height: 40px;
+	border-style: solid;
+	border-radius: 8px;
+	border-color: #5293f7;
+	padding-left: 10px;
+	font-style: 'Arial', serif;
+	font-size: 1em;
+}
+.create_schedule_form input[type=text]:focus{
+	outline: none;
+	border-color: #2973e6;
+}
+.create_schedule_form button[type=submit]{
+	border: none;
+	border-radius: 8px;
+	font-family: 'Arial', serif;
+	font-size: 1em;
+	color: white;
+	background: #2973e6;
+	margin: 10px;
+}
+.create_schedule_form button[type=submit]:hover{
+	background: #5293f7;
+}
+
+
+.create_task_form {
+	margin: auto;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+.create_task_form input[type=text]{
+	width: 97%;
+	margin: auto;
+	height: 40px;
+	border-style: solid;
+	border-radius: 8px;
+	border-color: #5293f7;
+	font-style: 'Arial', serif;
+	font-size: 1em;
+	padding-left: 2%;
+
+}
+.create_task_form input[type=text]:focus{
+	outline: none;
+	border-color: #2973e6;
+}
+.create_task_form button[type=submit]{
+	width: 100%;
+	margin: auto;
+	height: 50px;
+	border: none;
+	border-radius: 8px;
+	font-family: 'Arial', serif;
+	font-size: 1em;
+	color: white;
+	background: #2973e6;
+}
+.create_task_form button[type=submit]:hover{
+	background: #5293f7;
+}
+
+
+
+.priority_block {	
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+}
+.priority_block:hover {
+	cursor: default;	
+}
+.priority_elem {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.priority_elem:hover {
+	padding-top: 20px;
+	background: #c2daff;
+}
+
+.priority_block label {
+	text-transform: capitalize;
+	font-family: 'Arial' serif;
+	font-size: 1em;
+}
+
+.title_detail_schedule {
+	width: 100%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 10% 80% 10%;
+	grid-template-rows: 100%;
+	height: 15px;
+	padding-bottom: 50px;
+}
+.title_detail_schedule h1 {
+	padding: 0;
+	margin: 0;
+	padding-top: 2%;
+}
+.title_detail_schedule #del {
+	margin-right: 1%;
+	background: #e62939;
+}
+.title_detail_schedule #del:hover {
+	background: #f75262;
+}
+
+.schedule_element {
+	display: grid;
+	grid-template-columns: 80% 20%;
+}
+.schedule_element #schedule_element_state{
+	width: 100%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.schedule_element #schedule_element_del {
+	margin-right: 1%;
+	background: #e62939;
+	margin-bottom: 20px;
+}
+.schedule_element #schedule_element_del:hover {
+	background: #f75262;
+}
